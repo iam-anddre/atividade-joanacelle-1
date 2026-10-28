@@ -3,9 +3,9 @@
 
 int main() {
     int op;
-    int quant[10];
-    char nome[10][100];
-    float preco[10];
+    int quant[10] = {0};
+    char nome[10][100] = {""};
+    float preco[10] = {0};
 
     do {
         escreveMenu();
@@ -21,7 +21,7 @@ int main() {
             break;
 
         case 3:
-            registrarVendas(nome, quant);
+            registrarVendas(nome, preco, quant);
             break;
 
         case 4:
@@ -33,16 +33,13 @@ int main() {
             break;
 
         case 6:
-             faturarVendas(nome, preco, quant);
-            break;
-
-        case 7:
+            printf("Valor total do estoque: %.2f\n", valorTotalEstoque(preco, quant));
             break;
 
         default:
-            printf("Opcao invalida");
+            printf("Opcao invalida\n");
         }
-    } while (op != 7);
+    } while (op != 6);
 
     return 0;
 }
